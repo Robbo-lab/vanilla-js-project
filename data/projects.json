@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Weather App",
+    "description": "A simple weather app using OpenWeather API.",
+    "date": "2024-10-05",
+    "tags": ["weather", "API"]
+  },
+  {
+    "id": 2,
+    "name": "Todo List",
+    "description": "A productive todo app with local storage.",
+    "date": "2025-01-15",
+    "tags": ["todo", "productivity"]
+  }
+]

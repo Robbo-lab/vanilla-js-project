@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Projects</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="has-background-white">
+  <section class="section">
+    <div class="container">
+      <h1 class="title">My Projects</h1>
+
+      <input id="searchInput" class="input" type="text" placeholder="Search projects...">
+
+      <div class="buttons mt-2">
+        <button class="button is-small" id="sortName">Sort by Name</button>
+        <button class="button is-small" id="sortDate">Sort by Date</button>
+      </div>
+
+      <div id="projectList" class="columns is-multiline mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="projectModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title" id="modalTitle"></p>
+        <button class="delete" aria-label="close" id="modalClose"></button>
+      </header>
+      <section class="modal-card-body" id="modalContent"></section>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
