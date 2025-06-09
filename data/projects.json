@@ -1,16 +1,110 @@
 [
   {
     "id": 1,
-    "name": "Weather App",
-    "description": "A simple weather app using OpenWeather API.",
-    "date": "2024-10-05",
-    "tags": ["weather", "API"]
+    "name": "Sample Project 1",
+    "description": "This is a short summary of Sample Project 1, covering utilities topics.",
+    "date": "2024-08-20",
+    "category": "Utilities",
+    "tags": ["Flask", "JavaScript", "MongoDB"],
+    "link": "https://example.com/project-1"
   },
   {
     "id": 2,
-    "name": "Todo List",
-    "description": "A productive todo app with local storage.",
-    "date": "2025-01-15",
-    "tags": ["todo", "productivity"]
+    "name": "Sample Project 2",
+    "description": "This is a short summary of Sample Project 2, covering ai topics.",
+    "date": "2024-01-14",
+    "category": "AI",
+    "tags": ["Bulma", "JavaScript", "Node.js"],
+    "link": "https://example.com/project-2"
+  },
+  {
+    "id": 3,
+    "name": "Sample Project 3",
+    "description": "This is a short summary of Sample Project 3, covering data science topics.",
+    "date": "2024-06-09",
+    "category": "Data Science",
+    "tags": ["CSS", "JavaScript", "MongoDB"],
+    "link": "https://example.com/project-3"
+  },
+  {
+    "id": 4,
+    "name": "Sample Project 4",
+    "description": "This is a short summary of Sample Project 4, covering web topics.",
+    "date": "2024-05-30",
+    "category": "Web",
+    "tags": ["React", "Python", "JavaScript"],
+    "link": "https://example.com/project-4"
+  },
+  {
+    "id": 5,
+    "name": "Sample Project 5",
+    "description": "This is a short summary of Sample Project 5, covering web topics.",
+    "date": "2024-01-02",
+    "category": "Web",
+    "tags": ["Node.js", "React", "HTML"],
+    "link": "https://example.com/project-5"
+  },
+  {
+    "id": 6,
+    "name": "Sample Project 6",
+    "description": "This is a short summary of Sample Project 6, covering ai topics.",
+    "date": "2024-07-17",
+    "category": "AI",
+    "tags": ["Bulma", "Flask", "CSS"],
+    "link": "https://example.com/project-6"
+  },
+  {
+    "id": 7,
+    "name": "Sample Project 7",
+    "description": "This is a short summary of Sample Project 7, covering mobile topics.",
+    "date": "2024-10-14",
+    "category": "Mobile",
+    "tags": ["MongoDB", "API", "HTML"],
+    "link": "https://example.com/project-7"
+  },
+  {
+    "id": 8,
+    "name": "Sample Project 8",
+    "description": "This is a short summary of Sample Project 8, covering mobile topics.",
+    "date": "2024-12-05",
+    "category": "Mobile",
+    "tags": ["HTML", "CSS", "Node.js"],
+    "link": "https://example.com/project-8"
+  },
+  {
+    "id": 9,
+    "name": "Sample Project 9",
+    "description": "This is a short summary of Sample Project 9, covering utilities topics.",
+    "date": "2024-07-09",
+    "category": "Utilities",
+    "tags": ["CSS", "Python", "React"],
+    "link": "https://example.com/project-9"
+  },
+  {
+    "id": 10,
+    "name": "Sample Project 10",
+    "description": "This is a short summary of Sample Project 10, covering web topics.",
+    "date": "2024-07-13",
+    "category": "Web",
+    "tags": ["JavaScript", "Node.js", "Python"],
+    "link": "https://example.com/project-10"
+  },
+  {
+    "id": 11,
+    "name": "Sample Project 11",
+    "description": "This is a short summary of Sample Project 11, covering web topics.",
+    "date": "2024-06-22",
+    "category": "Web",
+    "tags": ["MongoDB", "CSS", "JavaScript"],
+    "link": "https://example.com/project-11"
+  },
+  {
+    "id": 12,
+    "name": "Sample Project 12",
+    "description": "This is a short summary of Sample Project 12, covering mobile topics.",
+    "date": "2024-07-20",
+    "category": "Mobile",
+    "tags": ["Python", "Bulma", "MongoDB"],
+    "link": "https://example.com/project-12"
   }
 ]

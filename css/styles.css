@@ -1,9 +1,54 @@
+<<<<<<< HEAD
 body {
   font-family: 'Segoe UI', sans-serif;
+=======
+html,
+body {
+  height: 100%;
+  display: flex;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  background-color: inherit;
+  color: inherit;
+}
+
+/* Make sure no matter the search results the app covers the screen */
+.min-vh-100 {
+  min-height: 100vh;
+>>>>>>> master
 }
 .project-card {
   transition: box-shadow 0.2s ease;
 }
 .project-card:hover {
+<<<<<<< HEAD
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+=======
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-card-body {
+  background-color: white;
+  border-top: 1px solid white;
+}
+.modal-card-foot {
+  background-color: white;
+  border-top: 1px solid white;
+}
+
+/* Ensure all card heights are the same */
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .card-content {
+  flex-grow: 1;
+>>>>>>> master
 }
