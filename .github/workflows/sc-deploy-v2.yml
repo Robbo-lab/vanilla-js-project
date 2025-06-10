@@ -1,4 +1,4 @@
-name: Deploy to WHM Server
+name: Deploy to Screencraft Server
 
 on:
   push:
