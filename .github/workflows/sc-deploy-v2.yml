@@ -12,13 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Clean APT cache and locks
+      - name: Clean and fix APT environment
         run: |
           sudo rm -f /var/lib/apt/lists/lock
           sudo rm -f /var/cache/apt/archives/lock
           sudo rm -f /var/cache/apt/pkgcache.bin
           sudo rm -f /var/cache/apt/srcpkgcache.bin
           sudo rm -rf /var/lib/apt/lists/*
+          sudo mkdir -p /var/lib/apt/lists/partial
+          sudo chown -R runner:runner /var/lib/apt/lists
+          sudo chmod -R 755 /var/lib/apt/lists
 
       - name: Install rsync
         run: |
