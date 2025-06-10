@@ -20,6 +20,8 @@ jobs:
           ls -l /var/cache/apt/archives/lock || echo "/var/cache/apt/archives/lock not found"
           ls -l /var/lib/dpkg/lock-frontend || echo "/var/lib/dpkg/lock-frontend not found"
           ls -ld /var/lib/dpkg/ || echo "/var/lib/dpkg/ not found"
+          ls -ld /var/cache/apt/archives/ || echo "/var/cache/apt/archives/ not found"
+          rsync --version || echo "rsync not installed"
           whoami
 
       - name: Clean and fix APT and dpkg environment
@@ -36,13 +38,18 @@ jobs:
           sudo rm -f /var/lib/dpkg/lock-frontend
           sudo chown -R runner:runner /var/lib/dpkg
           sudo chmod -R 755 /var/lib/dpkg
+          sudo chown -R runner:runner /var/cache/apt/archives
+          sudo chmod -R 755 /var/cache/apt/archives
 
-      - name: Install rsync
+      - name: Install rsync if not present
         run: |
-          apt-get update || { echo "apt-get update failed"; exit 1; }
-          apt-get install -y rsync || { echo "apt-get install rsync failed"; exit 1; }
-          rsync --version
-        # No sudo for apt-get; explicit error handling; verify rsync installation
+          if rsync --version; then
+            echo "rsync is already installed"
+          else
+            apt-get update || { echo "apt-get update failed"; exit 1; }
+            apt-get install -y rsync || { echo "apt-get install rsync failed"; exit 1; }
+            rsync --version
+          fi
 
       - name: Set up SSH
         run: |
