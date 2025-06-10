@@ -1,0 +1,65 @@
+name: Deploy to Screencraft Server
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: ubuntu:22.04 # Clean Ubuntu 22.04 container
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install rsync and SSH
+        run: |
+          apt-get update || { echo "apt-get update failed"; exit 1; }
+          apt-get install -y rsync openssh-client || { echo "apt-get install failed"; exit 1; }
+          rsync --version || { echo "rsync not installed"; exit 1; }
+          which rsync || { echo "rsync not found in PATH"; exit 1; }
+          ssh -V || { echo "SSH client not installed"; exit 1; }
+          echo "rsync installed at: $(which rsync)"
+        # Install and verify rsync and openssh-client
+
+      - name: Test SSH host and port
+        run: |
+          ping -c 4 ${{ secrets.SSH_HOST }} || { echo "Host ${{ secrets.SSH_HOST }} is not reachable"; exit 1; }
+          nc -zv ${{ secrets.SSH_HOST }} ${{ secrets.SSH_PORT }} || { echo "Port ${{ secrets.SSH_PORT }} is not open on ${{ secrets.SSH_HOST }}"; exit 1; }
+          echo "Host and port are reachable"
+        # Verify host and port before SSH setup
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          rm -f ~/.ssh/known_hosts
+          echo "Running ssh-keyscan for ${{ secrets.SSH_HOST }} on port ${{ secrets.SSH_PORT }}"
+          ssh-keyscan -H -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>&1 || { echo "ssh-keyscan failed"; exit 1; }
+          chmod 644 ~/.ssh/known_hosts
+          echo "Contents of known_hosts:"
+          cat ~/.ssh/known_hosts || echo "known_hosts is empty"
+        env:
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        # Set up SSH with debug output
+
+      - name: Debug SSH permissions
+        run: |
+          ls -ld ~/.ssh
+          ls -l ~/.ssh/id_rsa
+          ls -l ~/.ssh/known_hosts || echo "known_hosts not found"
+        # Verify SSH file permissions
+
+      - name: Test SSH connection
+        run: |
+          ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "echo SSH connection successful" || { echo "SSH connection failed"; exit 1; }
+        # Test SSH connection
+
+      - name: Deploy via rsync over SSH
+        run: |
+          rsync -avz --delete --exclude '.git' --exclude '.github' \
+            -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" \
+            ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}
