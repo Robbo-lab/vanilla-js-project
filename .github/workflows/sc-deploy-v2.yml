@@ -12,11 +12,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Clean APT cache and locks
+        run: |
+          rm -f /var/lib/apt/lists/lock
+          rm -f /var/cache/apt/archives/lock
+          rm -f /var/cache/apt/pkgcache.bin
+          rm -f /var/cache/apt/srcpkgcache.bin
+          rm -rf /var/lib/apt/lists/*
+        # Remove any residual lock files or corrupted cache to avoid permission issues
+
       - name: Install rsync
         run: |
-          apt-get update
-          apt-get install -y rsync
+          apt-get update || { echo "apt-get update failed"; exit 1; }
+          apt-get install -y rsync || { echo "apt-get install rsync failed"; exit 1; }
           rsync --version
+        # No sudo; explicit error handling; verify rsync installation
 
       - name: Set up SSH
         run: |
