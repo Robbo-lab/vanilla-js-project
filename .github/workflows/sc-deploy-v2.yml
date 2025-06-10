@@ -12,7 +12,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Clean and fix APT environment
+      - name: Debug APT and dpkg environment
+        run: |
+          ls -ld /var/lib/apt/lists/ || echo "/var/lib/apt/lists/ not found"
+          ls -l /var/lib/apt/lists/lock || echo "/var/lib/apt/lists/lock not found"
+          ls -ld /var/lib/apt/lists/partial || echo "/var/lib/apt/lists/partial not found"
+          ls -l /var/cache/apt/archives/lock || echo "/var/cache/apt/archives/lock not found"
+          ls -l /var/lib/dpkg/lock-frontend || echo "/var/lib/dpkg/lock-frontend not found"
+          ls -ld /var/lib/dpkg/ || echo "/var/lib/dpkg/ not found"
+          whoami
+
+      - name: Clean and fix APT and dpkg environment
         run: |
           sudo rm -f /var/lib/apt/lists/lock
           sudo rm -f /var/cache/apt/archives/lock
@@ -22,12 +32,17 @@ jobs:
           sudo mkdir -p /var/lib/apt/lists/partial
           sudo chown -R runner:runner /var/lib/apt/lists
           sudo chmod -R 755 /var/lib/apt/lists
+          sudo rm -f /var/lib/dpkg/lock
+          sudo rm -f /var/lib/dpkg/lock-frontend
+          sudo chown -R runner:runner /var/lib/dpkg
+          sudo chmod -R 755 /var/lib/dpkg
 
       - name: Install rsync
         run: |
           apt-get update || { echo "apt-get update failed"; exit 1; }
           apt-get install -y rsync || { echo "apt-get install rsync failed"; exit 1; }
           rsync --version
+        # No sudo for apt-get; explicit error handling; verify rsync installation
 
       - name: Set up SSH
         run: |
