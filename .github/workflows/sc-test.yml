@@ -13,15 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install rsync and SSH
+      - name: Install rsync, SSH, and networking tools
         run: |
           apt-get update || { echo "apt-get update failed"; exit 1; }
-          apt-get install -y rsync openssh-client || { echo "apt-get install failed"; exit 1; }
+          apt-get install -y rsync openssh-client iputils-ping netcat-openbsd || { echo "apt-get install failed"; exit 1; }
           rsync --version || { echo "rsync not installed"; exit 1; }
           which rsync || { echo "rsync not found in PATH"; exit 1; }
           ssh -V || { echo "SSH client not installed"; exit 1; }
+          ping -V || { echo "ping not installed"; exit 1; }
+          nc -h || { echo "netcat not installed"; exit 1; }
           echo "rsync installed at: $(which rsync)"
-        # Install and verify rsync and openssh-client
+        # Install and verify rsync, openssh-client, iputils-ping, and netcat-openbsd
 
       - name: Test SSH host and port
         run: |
@@ -36,7 +38,7 @@ jobs:
           chmod 700 ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          rm -f ~/.ssh/known_hosts
+          rm -f ~/.ssh/known_hosts  # Clear existing known_hosts to avoid mismatches
           echo "Running ssh-keyscan for ${{ secrets.SSH_HOST }} on port ${{ secrets.SSH_PORT }}"
           ssh-keyscan -H -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>&1 || { echo "ssh-keyscan failed"; exit 1; }
           chmod 644 ~/.ssh/known_hosts
