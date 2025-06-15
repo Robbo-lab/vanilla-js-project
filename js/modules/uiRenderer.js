@@ -1,4 +1,5 @@
 import { formatDate, lazyLoad } from "./helpers.js";
+import { setupForm, editProject } from "./formHandler.js";
 
 /**
  * Renders a list of project cards into the #projectContainer element.
@@ -6,7 +7,7 @@ import { formatDate, lazyLoad } from "./helpers.js";
  *
  * @param {Array} projects - Array of project objects to display.
  */
-export function renderProjects(projects) {
+export function renderProjects(projects, onEdit) {
   const container = document.getElementById("projectContainer");
   const favourites =
     JSON.parse(localStorage.getItem("favouriteProjects")) || [];
@@ -64,6 +65,13 @@ export function renderProjects(projects) {
     container.appendChild(column);
   });
 
+  document.querySelectorAll(".edit-project").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const id = parseInt(e.currentTarget.dataset.id);
+      onEdit(id);
+    });
+  });
+
   lazyLoad();
 }
 
@@ -73,7 +81,7 @@ export function renderProjects(projects) {
  *
  * @param {Array} projects - The same array of project data used to render cards.
  */
-export function addProjectModals(projects) {
+export function showProjectModals(projects) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalContent = document.getElementById("modalContent");
@@ -114,10 +122,12 @@ export function addProjectModals(projects) {
 
     modalFooter.classList.add(
       "has-background-white",
-      "is-justify-content-flex-end"
+      "is-justify-content-space-between"
     );
+
     modalFooter.innerHTML = `
-      <a href="${project.link}" class="button is-info is-light" target="_blank">Visit Project</a>
+      <button class="button is-small is-warning is-light edit-project" id="editFromModalBtn" data-id="${project.id}">Edit</button>
+      <a href="${project.link}" class="button is-small is-link is-light" target="_blank">Visit Project</a>
     `;
 
     modal.classList.add("is-active");
@@ -126,4 +136,13 @@ export function addProjectModals(projects) {
   closeModal.addEventListener("click", () => {
     modal.classList.remove("is-active");
   });
+
+  if (document.getElementById("editFromModalBtn")) {
+    document
+      .getElementById("editFromModalBtn")
+      .addEventListener("click", () => {
+        modal.classList.remove("is-active");
+        editProject(project);
+      });
+  }
 }

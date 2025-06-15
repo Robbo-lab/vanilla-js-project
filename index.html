@@ -105,7 +105,18 @@
           <!-- Projects Here -->
         </section>
       </div>
+      <!-- Button to open modal -->
+      <section class="mt-6 container">
+        <button
+          class="button is-small is-success is-outlined is-pulled-right"
+          id="openFormBtn"
+        >
+          + Add Project
+        </button>
+      </section>
     </main>
+
+    <!-- Project show modal -->
     <div
       class="modal"
       id="projectModal"
@@ -128,6 +139,60 @@
           class="modal-card-foot has-background-white is-justify-content-flex-end"
           id="modalFooter"
         ></footer>
+      </div>
+    </div>
+
+    <!-- Project add modal -->
+    <div class="modal" id="projectFormModal">
+      <div class="modal-background"></div>
+      <div class="modal-card p-2">
+        <header class="modal-card-head">
+          <p class="modal-card-title" id="formTitle">Add Project</p>
+          <button class="delete" aria-label="close" id="closeFormBtn"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="projectForm">
+            <input type="hidden" id="projectId" />
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input" type="text" id="projectName" required />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Category</label>
+              <div class="control">
+                <input class="input" type="text" id="projectCategory" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Description</label>
+              <div class="control">
+                <textarea class="textarea" id="projectDescription"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Tags (comma separated)</label>
+              <div class="control">
+                <input class="input" type="text" id="projectTags" />
+              </div>
+            </div>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button
+            class="button m-1 is-small is-light is-success"
+            id="saveProjectBtn"
+          >
+            Save
+          </button>
+          <button
+            class="button m-1 is-small is-light is-danger"
+            id="deleteProjectBtn"
+          >
+            Delete
+          </button>
+        </footer>
       </div>
     </div>
 
