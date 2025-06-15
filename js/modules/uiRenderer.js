@@ -1,3 +1,5 @@
+import { formatDate, lazyLoad } from "./helpers.js";
+
 /**
  * Renders a list of project cards into the #projectContainer element.
  * Each card includes a title, category, description, tags, and favourite toggle.
@@ -17,17 +19,16 @@ export function renderProjects(projects) {
   }
 
   projects.forEach((project) => {
-    // Outer wrapper column for responsive layout
     const column = document.createElement("div");
     column.className =
-      "column is-full-mobile is-half-tablet is-one-third-desktop";
+      "column is-one-third-desktop is-half-tablet is-full-mobile";
 
     // Project card box
     const card = document.createElement("div");
     card.className = "box project-card is-flex is-flex-direction-column";
     card.dataset.id = project.id;
 
-    const isFav = favourites.includes(project.id);
+    const isFavourite = favourites.includes(project.id);
 
     card.innerHTML = `
       <div class="level is-mobile">
@@ -36,9 +37,9 @@ export function renderProjects(projects) {
         </div>
         <div class="level-right">
           <button class="button is-small favourite-toggle ${
-            isFav ? "is-warning" : "is-light"
+            isFavourite ? "is-warning" : "is-light"
           }" data-id="${project.id}" title="Toggle favourite">
-            ${isFav ? "★" : "☆"}
+            ${isFavourite ? "★" : "☆"}
           </button>
         </div>
       </div>
@@ -63,7 +64,7 @@ export function renderProjects(projects) {
     container.appendChild(column);
   });
 
-  lazyReveal();
+  lazyLoad();
 }
 
 /**
@@ -72,7 +73,7 @@ export function renderProjects(projects) {
  *
  * @param {Array} projects - The same array of project data used to render cards.
  */
-export function attachModalHandlers(projects) {
+export function addProjectModals(projects) {
   const modal = document.getElementById("projectModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalContent = document.getElementById("modalContent");
@@ -124,44 +125,5 @@ export function attachModalHandlers(projects) {
 
   closeModal.addEventListener("click", () => {
     modal.classList.remove("is-active");
-  });
-}
-
-/**
- * Applies a lazy-reveal fade-in effect to project cards using IntersectionObserver.
- * Cards are animated when they scroll into view for the first time.
- */
-function lazyReveal() {
-  const cards = document.querySelectorAll(".project-card");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  cards.forEach((card) => {
-    card.classList.add("opacity-0");
-    observer.observe(card);
-  });
-}
-
-/**
- * Formats a raw date string (e.g. "2024-07-20") into a full human-readable date.
- *
- * @param {string} date - A date string in YYYY-MM-DD format.
- * @returns {string} A formatted date string like "Saturday, July 20, 2024"
- */
-function formatDate(date) {
-  return new Date(date).toLocaleDateString("en-AU", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
   });
 }

@@ -1,30 +1,29 @@
-// Module imports for data loading, UI template rendering, and feature setup
 import { loadProjects } from "./modules/dataLoader.js";
-import { renderProjects, attachModalHandlers } from "./modules/uiRenderer.js";
+import { renderProjects, addProjectModals } from "./modules/uiRenderer.js";
 import {
-  setupFiltersAndSort,
-  setupDarkModeToggle,
-  setupOfflineStatus,
-  setupfavourites,
+  filterAndSort,
+  darkModeToggle,
+  offlineStatus,
+  updateFavouritesandTags,
 } from "./modules/eventHandlers.js";
 
-// Holds the loaded list of project data
+// List of project data
 let projects = [];
 
 /**
- * Initialises the landing page by:
- * - Loading project data
- * - Rendering the UI templates
- * - Setting up modal, filters, dark mode, offline detection, and favourites features
+ * When the page loads or is reloaded the following runs asynchronously:
+ * - Loads project data ()
+ * - Renders the project templates
+ * - Adds modal,filters,dark mode,offline status,edit favourites
  */
 async function init() {
-  projects = await loadProjects(); // Load JSON data
-  renderProjects(projects); // Render project cards
-  attachModalHandlers(projects); // Set up modal behavior
-  setupFiltersAndSort(projects, renderProjects); // Enable search, tag, and sort
-  setupDarkModeToggle(); // Enable theme switch
-  setupOfflineStatus(); // Show offline badge if needed
-  setupfavourites(projects, renderProjects); // Enable favourite toggling
+  projects = await loadProjects();
+  renderProjects(projects);
+  addProjectModals(projects);
+  filterAndSort(projects, renderProjects);
+  darkModeToggle();
+  offlineStatus();
+  updateFavouritesandTags(projects, renderProjects);
 }
 
 init();

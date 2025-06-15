@@ -1,18 +1,18 @@
 /**
- * Sets up filtering, category selection, and sorting by name or date.
- * Also enables tag-click filtering from within each project card.
+ * Enables filtering, category selection, and sorting by name or date.
+ * Also enables tag-click filtering in each project card.
  *
  * @param {Array} projects - The full list of project data.
  * @param {Function} renderCallback - Function used to render the filtered project list.
  */
-export function setupFiltersAndSort(projects, renderCallback) {
+export function filterAndSort(projects, renderCallback) {
   const searchInput = document.getElementById("searchInput");
   const categoryFilter = document.getElementById("categoryFilter");
   const sortNameBtn = document.getElementById("sortName");
   const sortDateBtn = document.getElementById("sortDate");
 
   /**
-   * Filters and renders projects based on the current search and category inputs.
+   * Filters and renders projects based on search and category inputs.
    */
   function filterAndRender() {
     const term = searchInput.value.toLowerCase();
@@ -52,17 +52,17 @@ export function setupFiltersAndSort(projects, renderCallback) {
 }
 
 /**
- * Initialises a persistent dark/light theme toggle.
- * Saves the theme state to localStorage and updates the button label dynamically.
+ * Provides a dark/light theme toggle.
+ * Saves the theme state to localStorage and updates the button label.
  */
-export function setupDarkModeToggle() {
+export function darkModeToggle() {
   const toggleBtn = document.getElementById("themeToggle");
   const body = document.body;
 
   /**
-   * Applies or removes dark mode based on the state provided.
+   * Applies/removes dark mode based on storage state.
    *
-   * @param {boolean} state - True for dark mode, false for light mode.
+   * @param {boolean} state - true: dark mode, false: light mode.
    */
   function applyDarkMode(state) {
     if (state) {
@@ -90,10 +90,10 @@ export function setupDarkModeToggle() {
 }
 
 /**
- * Displays or hides the offline status badge based on browser connectivity.
- * Listens to online/offline events and updates the DOM accordingly.
+ * Displays or hides the offline status based on browser connectivity.
+ * Listens to online/offline events and updates the DOM.
  */
-export function setupOfflineStatus() {
+export function offlineStatus() {
   const badge = document.getElementById("offlineBadge");
 
   /**
@@ -119,24 +119,24 @@ export function setupOfflineStatus() {
  * @param {Array} projects - The original full list of project data.
  * @param {Function} renderCallback - The rendering function to re-display filtered results.
  */
-export function setupfavourites(projects, renderCallback) {
+export function updateFavouritesandTags(projects, renderCallback) {
   const favKey = "favouriteProjects";
 
   /**
    * Retrieves the list of favourite project IDs from localStorage.
    *
-   * @returns {number[]} An array of favourited project IDs.
+   * @returns {number[]} An array of favourited project IDs or empty if none
    */
   const getfavourites = () => JSON.parse(localStorage.getItem(favKey)) || [];
 
-  // Handle favourite button toggle
+  // Handle favourite and tag button events
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("favourite-toggle")) {
       const id = parseInt(e.target.dataset.id);
       let favourites = getfavourites();
 
       favourites = favourites.includes(id)
-        ? favourites.filter((fid) => fid !== id)
+        ? favourites.filter((filteredId) => filteredId !== id)
         : [...favourites, id];
 
       localStorage.setItem(favKey, JSON.stringify(favourites));
@@ -149,15 +149,16 @@ export function setupfavourites(projects, renderCallback) {
       const searchInput = document.getElementById("searchInput");
       if (searchInput) {
         searchInput.value = tagValue;
-        searchInput.dispatchEvent(new Event("input")); // triggers built-in filtering
+
+        // Creates a new input event to the tag buttons
+        searchInput.dispatchEvent(new Event("input"));
       }
     }
   });
 
-  // Handle "Show favourites" button
-  const favBtn = document.getElementById("showfavouritesBtn");
-  if (favBtn) {
-    favBtn.addEventListener("click", () => {
+  const favouriteBtn = document.getElementById("showfavouritesBtn");
+  if (favouriteBtn) {
+    favouriteBtn.addEventListener("click", () => {
       const favourites = getfavourites();
       const filtered = projects.filter((p) => favourites.includes(p.id));
       renderCallback(filtered);

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NM Tafe Projects</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/bulma.min.css" />
@@ -10,116 +11,125 @@
   <body
     class="has-background-white is-flex is-flex-direction-column min-vh-100"
   >
-    <main class="section is-flex-grow-1">
+    <header class="section">
       <div class="container">
-        <section class="section">
-          <div class="container">
-            <div class="container mb-3">
-              <div
-                class="columns is-vcentered is-mobile is-variable is-justify-content-space-between"
-              >
-                <div class="column">
-                  <h1 class="title has-text-info">Robbo-lab Home</h1>
-                  <p class="subtitle has-text-grey is-5">
-                    This blazingly fast site uses Vanilla JavaScript only
-                  </p>
-                </div>
-
-                <div class="column is-narrow is-hidden-mobile has-text-right">
-                  <button
-                    id="themeToggle"
-                    class="button is-small is-warning is-outlined"
-                  >
-                    Dark Mode
-                  </button>
-                </div>
-
-                <div class="column is-narrow is-hidden-mobile has-text-right">
-                  <figure class="image is-128x128">
-                    <img
-                      class="is-rounded"
-                      src="assets/tafe_head.jpeg"
-                      alt="Robbo logo"
-                    />
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="field has-addons mb-3">
-              <div class="control is-expanded">
-                <input
-                  id="searchInput"
-                  class="input"
-                  type="text"
-                  placeholder="Search projects..."
-                />
-              </div>
-              <div class="control">
-                <div class="select">
-                  <select id="categoryFilter">
-                    <option value="">All Categories</option>
-                    <option value="Web">Web</option>
-                    <option value="Mobile">Mobile</option>
-                    <option value="AI">AI</option>
-                    <option value="Data Science">Data Science</option>
-                    <option value="Utilities">Utilities</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div
-              id="offlineBadge"
-              class="notification is-info is-light is-outline is-hidden"
-            >
-              You are currently offline.
-            </div>
-
-            <section class="container pl-1">
-              <div class="buttons">
-                <button
-                  class="button is-small is-success is-outlined"
-                  id="sortName"
-                >
-                  Sort by Name
-                </button>
-                <button
-                  class="button is-small is-info is-outlined"
-                  id="sortDate"
-                >
-                  Sort by Date
-                </button>
-                <button
-                  id="showfavouritesBtn"
-                  class="button is-small is-outlined is-danger"
-                >
-                  ★ Show favourites
-                </button>
-              </div>
-            </section>
-            <div id="projectContainer" class="columns is-multiline mt-4"></div>
+        <div
+          class="columns is-vcentered is-mobile is-variable is-justify-content-space-between"
+        >
+          <div class="column">
+            <h1 class="title has-text-info">Robbo-lab Home</h1>
+            <p class="subtitle has-text-grey is-5">
+              This blazingly fast site uses Vanilla JavaScript only
+            </p>
           </div>
-        </section>
 
-        <div class="modal" id="projectModal">
-          <div class="modal-background"></div>
-          <div class="modal-card">
-            <header class="modal-card-head">
-              <p class="modal-card-title" id="modalTitle"></p>
-              <button
-                class="delete"
-                aria-label="close"
-                id="closeModal"
-              ></button>
-            </header>
-            <section class="modal-card-body" id="modalContent"></section>
-            <footer
-              class="modal-card-foot has-backgournd-white is-justify-content-flex-end"
-              id="modalFooter"
-            ></footer>
+          <div class="column is-narrow is-hidden-mobile has-text-right">
+            <button
+              id="themeToggle"
+              class="button is-small is-warning is-outlined"
+            >
+              Dark Mode
+            </button>
+          </div>
+
+          <div class="column is-narrow is-hidden-mobile has-text-right">
+            <figure class="image is-128x128">
+              <img
+                class="is-rounded"
+                src="assets/tafe_head.jpeg"
+                alt="Robbo logo"
+              />
+            </figure>
           </div>
         </div>
       </div>
+    </header>
+
+    <main class="section is-flex-grow-1">
+      <div class="container">
+        <form class="field has-addons mb-3" role="search">
+          <div class="control is-expanded">
+            <input
+              id="searchInput"
+              class="input"
+              type="search"
+              placeholder="Search projects..."
+              aria-label="Search projects"
+            />
+          </div>
+          <div class="control">
+            <div class="select">
+              <label for="categoryFilter" class="is-sr-only"
+                >Category Filter</label
+              >
+              <select id="categoryFilter" name="category">
+                <option value="">All Categories</option>
+                <option value="Web">Web</option>
+                <option value="Mobile">Mobile</option>
+                <option value="AI">AI</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Utilities">Utilities</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div
+          id="offlineBadge"
+          class="notification is-info is-light is-outline is-hidden"
+          role="alert"
+        >
+          You are currently offline.
+        </div>
+
+        <nav aria-label="Project controls" class="pl-1 mb-4">
+          <div class="buttons">
+            <button
+              class="button is-small is-success is-outlined"
+              id="sortName"
+            >
+              Sort by Name
+            </button>
+            <button class="button is-small is-info is-outlined" id="sortDate">
+              Sort by Date
+            </button>
+            <button
+              id="showfavouritesBtn"
+              class="button is-small is-outlined is-danger"
+            >
+              ★ Show favourites
+            </button>
+          </div>
+        </nav>
+
+        <section id="projectContainer" class="columns is-multiline mt-4">
+          <!-- Projects Here -->
+        </section>
+      </div>
     </main>
+    <div
+      class="modal"
+      id="projectModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-background"></div>
+      <div class="modal-card p-2">
+        <header class="modal-card-head">
+          <p class="modal-card-title" id="modalTitle"></p>
+          <button
+            class="delete"
+            aria-label="Close modal"
+            id="closeModal"
+          ></button>
+        </header>
+        <section class="modal-card-body" id="modalContent"></section>
+        <footer
+          class="modal-card-foot has-background-white is-justify-content-flex-end"
+          id="modalFooter"
+        ></footer>
+      </div>
+    </div>
 
     <footer class="footer has-background-dark p-5">
       <p id="footerText" class="has-text-centered is-size-7 has-text-light">
@@ -128,11 +138,9 @@
     </footer>
 
     <script>
-      // Set the current year dynamically
       document.getElementById("footerYear").textContent =
         new Date().getFullYear();
     </script>
-
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/app.js" defer></script>
   </body>
 </html>
