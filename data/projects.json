@@ -1,110 +1,299 @@
 [
   {
     "id": 1,
-    "name": "Sample Project 1",
-    "description": "This is a short summary of Sample Project 1, covering utilities topics.",
-    "date": "2024-08-20",
-    "category": "Utilities",
-    "tags": ["Flask", "JavaScript", "MongoDB"],
-    "link": "https://example.com/project-1"
+    "name": "snake-game",
+    "description": "Snake game code and activity to get students working with branches and forks",
+    "date": "2025-08-07",
+    "category": "Programming",
+    "tags": ["Python", "Pygame", "Game Development"],
+    "link": "https://github.com/Robbo-lab/snake-game"
   },
   {
     "id": 2,
-    "name": "Sample Project 2",
-    "description": "This is a short summary of Sample Project 2, covering ai topics.",
-    "date": "2024-01-14",
-    "category": "AI",
-    "tags": ["Bulma", "JavaScript", "Node.js"],
-    "link": "https://example.com/project-2"
+    "name": "session-3-test",
+    "description": "Test repo for branching",
+    "date": "2025-08-07",
+    "category": "Programming",
+    "tags": ["Git", "Version Control"],
+    "link": "https://github.com/Robbo-lab/session-3-test"
   },
   {
     "id": 3,
-    "name": "Sample Project 3",
-    "description": "This is a short summary of Sample Project 3, covering data science topics.",
-    "date": "2024-06-09",
-    "category": "Data Science",
-    "tags": ["CSS", "JavaScript", "MongoDB"],
-    "link": "https://example.com/project-3"
+    "name": "NM-TAFE-jte-dip-advanced-sessions",
+    "description": "Advanced Diploma Sessions - Games & Intelligent Systems Cluster",
+    "date": "2025-07-31",
+    "category": "AI",
+    "tags": ["Python", "AI", "Game Development"],
+    "link": "https://github.com/Robbo-lab/NM-TAFE-jte-dip-advanced-sessions"
   },
   {
     "id": 4,
-    "name": "Sample Project 4",
-    "description": "This is a short summary of Sample Project 4, covering web topics.",
-    "date": "2024-05-30",
-    "category": "Web",
-    "tags": ["React", "Python", "JavaScript"],
-    "link": "https://example.com/project-4"
+    "name": "session2-test",
+    "description": "This is the Iot test repo",
+    "date": "2025-07-31",
+    "category": "IoT",
+    "tags": ["IoT", "Python"],
+    "link": "https://github.com/Robbo-lab/session2-test"
   },
   {
     "id": 5,
-    "name": "Sample Project 5",
-    "description": "This is a short summary of Sample Project 5, covering web topics.",
-    "date": "2024-01-02",
-    "category": "Web",
-    "tags": ["Node.js", "React", "HTML"],
-    "link": "https://example.com/project-5"
+    "name": "pwd_generator",
+    "description": "Test for IOT",
+    "date": "2025-07-24",
+    "category": "IoT",
+    "tags": ["Python", "Security", "IoT"],
+    "link": "https://github.com/Robbo-lab/pwd_generator"
   },
   {
     "id": 6,
-    "name": "Sample Project 6",
-    "description": "This is a short summary of Sample Project 6, covering ai topics.",
-    "date": "2024-07-17",
-    "category": "AI",
-    "tags": ["Bulma", "Flask", "CSS"],
-    "link": "https://example.com/project-6"
+    "name": "my-react-app",
+    "description": "My react application",
+    "date": "2025-07-03",
+    "category": "Web",
+    "tags": ["JavaScript", "React"],
+    "link": "https://github.com/Robbo-lab/my-react-app"
   },
   {
     "id": 7,
-    "name": "Sample Project 7",
-    "description": "This is a short summary of Sample Project 7, covering mobile topics.",
-    "date": "2024-10-14",
-    "category": "Mobile",
-    "tags": ["MongoDB", "API", "HTML"],
-    "link": "https://example.com/project-7"
+    "name": "AISS-ICTSS00120-2025S1",
+    "description": "Fork of original branch to be reused for the new AI with Python Skillset",
+    "date": "2025-07-01",
+    "category": "AI",
+    "tags": ["Python", "AI"],
+    "link": "https://github.com/Robbo-lab/AISS-ICTSS00120-2025S1"
   },
   {
     "id": 8,
-    "name": "Sample Project 8",
-    "description": "This is a short summary of Sample Project 8, covering mobile topics.",
-    "date": "2024-12-05",
-    "category": "Mobile",
-    "tags": ["HTML", "CSS", "Node.js"],
-    "link": "https://example.com/project-8"
+    "name": "civ-ipos-project-ocrroo",
+    "description": "Base repo for validation and last minutes contributions to IPOS",
+    "date": "2025-06-27",
+    "category": "Web",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/civ-ipos-project-ocrroo"
   },
   {
     "id": 9,
-    "name": "Sample Project 9",
-    "description": "This is a short summary of Sample Project 9, covering utilities topics.",
-    "date": "2024-07-09",
-    "category": "Utilities",
-    "tags": ["CSS", "Python", "React"],
-    "link": "https://example.com/project-9"
+    "name": "vanilla-js-project",
+    "description": "Superfast vanilla js only site",
+    "date": "2025-06-15",
+    "category": "Web",
+    "tags": ["JavaScript"],
+    "link": "https://github.com/Robbo-lab/vanilla-js-project"
   },
   {
     "id": 10,
-    "name": "Sample Project 10",
-    "description": "This is a short summary of Sample Project 10, covering web topics.",
-    "date": "2024-07-13",
+    "name": "civ-webbies-prep-start",
+    "description": "Starting repo for 3 week series.",
+    "date": "2025-06-11",
     "category": "Web",
-    "tags": ["JavaScript", "Node.js", "Python"],
-    "link": "https://example.com/project-10"
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/civ-webbies-prep-start"
   },
   {
     "id": 11,
-    "name": "Sample Project 11",
-    "description": "This is a short summary of Sample Project 11, covering web topics.",
-    "date": "2024-06-22",
+    "name": "civ-dip-webbies-series",
+    "description": "Series of lesson to get civ webbies preparerd for dipl wep app",
+    "date": "2025-06-04",
     "category": "Web",
-    "tags": ["MongoDB", "CSS", "JavaScript"],
-    "link": "https://example.com/project-11"
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/civ-dip-webbies-series"
   },
   {
     "id": 12,
-    "name": "Sample Project 12",
-    "description": "This is a short summary of Sample Project 12, covering mobile topics.",
-    "date": "2024-07-20",
-    "category": "Mobile",
-    "tags": ["Python", "Bulma", "MongoDB"],
-    "link": "https://example.com/project-12"
+    "name": "skills-resolve-merge-conflicts",
+    "description": "My clone repository",
+    "date": "2025-05-06",
+    "category": "Programming",
+    "tags": ["Git", "Version Control"],
+    "link": "https://github.com/Robbo-lab/skills-resolve-merge-conflicts"
+  },
+  {
+    "id": 13,
+    "name": "tic_tac_toh_automation",
+    "description": "Repository to showcase basic automation and documentation on Github",
+    "date": "2025-03-25",
+    "category": "Utilities",
+    "tags": ["Python", "Automation"],
+    "link": "https://github.com/Robbo-lab/tic_tac_toh_automation"
+  },
+  {
+    "id": 14,
+    "name": "automated_testing_v1",
+    "description": "Repository to set up GitHub actions.",
+    "date": "2025-03-25",
+    "category": "Utilities",
+    "tags": ["GitHub Actions", "CI/CD"],
+    "link": "https://github.com/Robbo-lab/automated_testing_v1"
+  },
+  {
+    "id": 15,
+    "name": "tic_tac_toe_docs",
+    "description": "Sphinx Documentation on GH Pages",
+    "date": "2025-03-25",
+    "category": "Utilities",
+    "tags": ["Python", "Sphinx"],
+    "link": "https://github.com/Robbo-lab/tic_tac_toe_docs"
+  },
+  {
+    "id": 16,
+    "name": "intro-to-version-control-nmtafe",
+    "description": "",
+    "date": "2025-03-18",
+    "category": "Programming",
+    "tags": ["Git", "Version Control"],
+    "link": "https://github.com/Robbo-lab/intro-to-version-control-nmtafe"
+  },
+  {
+    "id": 17,
+    "name": "dip-web-app-react-app-final",
+    "description": "React app containing all of the compoenents from the class",
+    "date": "2024-11-14",
+    "category": "Web",
+    "tags": ["JavaScript", "React"],
+    "link": "https://github.com/Robbo-lab/dip-web-app-react-app-final"
+  },
+  {
+    "id": 18,
+    "name": "spatie-permission-demo",
+    "description": "Diploma Front End Demo of Spatie installation",
+    "date": "2024-11-11",
+    "category": "Web",
+    "tags": ["PHP", "Laravel"],
+    "link": "https://github.com/Robbo-lab/spatie-permission-demo"
+  },
+  {
+    "id": 19,
+    "name": "next-saas-starter",
+    "description": "Get started quickly with Next.js, Postgres, Stripe, and shadcn/ui.",
+    "date": "2024-10-19",
+    "category": "Web",
+    "tags": ["JavaScript", "Next.js", "PostgreSQL"],
+    "link": "https://github.com/Robbo-lab/next-saas-starter"
+  },
+  {
+    "id": 20,
+    "name": "next-enterprise",
+    "description": "An enterprise-grade Next.js boilerplate for high-performance, maintainable apps.",
+    "date": "2024-10-09",
+    "category": "Web",
+    "tags": ["JavaScript", "Next.js"],
+    "link": "https://github.com/Robbo-lab/next-enterprise"
+  },
+  {
+    "id": 21,
+    "name": "SaaS-FED-Laravel-Learning",
+    "description": "Fork of Saas App",
+    "date": "2024-10-09",
+    "category": "Web",
+    "tags": ["PHP", "Laravel"],
+    "link": "https://github.com/Robbo-lab/ICT50220-SaaS-FED-Laravel-Learning-24S2"
+  },
+  {
+    "id": 22,
+    "name": "civ-ipos-github-activity",
+    "description": "Template repo for session 10 group collaboration activity",
+    "date": "2024-09-09",
+    "category": "Web",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/civ-ipos-github-activity"
+  },
+  {
+    "id": 23,
+    "name": "div-wep-app-14-18",
+    "description": "",
+    "date": "2024-07-24",
+    "category": "Web",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/div-wep-app-14-18"
+  },
+  {
+    "id": 24,
+    "name": "dwa-assessment-3",
+    "description": "Final project in Web App Diploma cluster",
+    "date": "2024-07-19",
+    "category": "Web",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/div-web-application-development-assessment-3"
+  },
+  {
+    "id": 25,
+    "name": "algorithms",
+    "description": "Minimal examples of data structures and algorithms in Python",
+    "date": "2024-06-14",
+    "category": "Programming",
+    "tags": ["Python", "Algorithms"],
+    "link": "https://github.com/Robbo-lab/algorithms"
+  },
+  {
+    "id": 26,
+    "name": "Intro-to-Version-Control",
+    "description": "Notes and exercises on Version Control",
+    "date": "2024-03-26",
+    "category": "Programming",
+    "tags": ["Git", "Version Control"],
+    "link": "https://github.com/Robbo-lab/Intro-to-Version-Control"
+  },
+  {
+    "id": 27,
+    "name": "PyTestingExample",
+    "description": "This is a simple example Repository for a PyTest on github.",
+    "date": "2023-11-08",
+    "category": "Programming",
+    "tags": ["Python", "PyTest"],
+    "link": "https://github.com/Robbo-lab/PyTestingExample"
+  },
+  {
+    "id": 28,
+    "name": "civ-ipos-sessions",
+    "description": "Provides a complement to Blackboard sessions and in class demonstrations and practical activities.",
+    "date": "2023-10-13",
+    "category": "Web",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/Robbo-lab/civ-ipos-sessions"
+  },
+  {
+    "id": 29,
+    "name": "pygame_v1",
+    "description": "Pygame trial for class",
+    "date": "2023-10-06",
+    "category": "Programming",
+    "tags": ["Python", "Pygame", "Game Development"],
+    "link": "https://github.com/Robbo-lab/pygame_v1"
+  },
+  {
+    "id": 30,
+    "name": "heroicons-ui",
+    "description": "",
+    "date": "2019-12-23",
+    "category": "Web",
+    "tags": ["JavaScript", "UI Icons"],
+    "link": "https://github.com/Robbo-lab/heroicons-ui"
+  },
+  {
+    "id": 31,
+    "name": "civ-ipos-sessions",
+    "description": "Provides a complement to Blackboard sessions and in class demonstrations and practical activities.",
+    "date": "2025-01-29",
+    "category": "Web",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/NM-TAFE/civ-ipos-sessions"
+  },
+  {
+    "id": 32,
+    "name": "civ-js-api-test",
+    "description": "Test bed for JS/React/Next JS API usage for CIV and Dip Front End.",
+    "date": "2024-07-31",
+    "category": "Web",
+    "tags": ["JavaScript", "React", "Next.js"],
+    "link": "https://github.com/NM-TAFE/civ-js-api-test"
+  },
+  {
+    "id": 33,
+    "name": "dip-project-ocrroo",
+    "description": "OCR project repository (public template).",
+    "date": "2024-05-21",
+    "category": "Data Science",
+    "tags": ["JavaScript", "Web Development"],
+    "link": "https://github.com/NM-TAFE/dip-project-ocrroo"
   }
 ]
