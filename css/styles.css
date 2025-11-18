@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+body {
+  font-family: 'Segoe UI', sans-serif;
+=======
 html,
 body {
   height: 100%;
@@ -21,7 +25,7 @@ main {
   transition: box-shadow 0.2s ease;
 }
 .project-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,4 +47,12 @@ main {
 
 .project-card .card-content {
   flex-grow: 1;
+}
+
+.project-title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 85%;   /* keeps it off the icon */
+  line-height: 1.2;
 }

@@ -31,17 +31,13 @@ export function renderProjects(projects) {
     const isFavourite = favourites.includes(project.id);
 
     card.innerHTML = `
-      <div class="level is-mobile">
-        <div class="level-left">
-          <h2 class="title is-5 mb-2">${project.name}</h2>
-        </div>
-        <div class="level-right">
-          <button class="button is-small favourite-toggle ${
-            isFavourite ? "is-warning" : "is-light"
-          }" data-id="${project.id}" title="Toggle favourite">
-            ${isFavourite ? "★" : "☆"}
-          </button>
-        </div>
+      <div class="is-flex is-justify-content-space-between is-align-items-start>
+        <h2 class="title is-5 mb-2 project-title">${project.name}</h2>
+        <button class="button is-small favourite-toggle ${
+          isFavourite ? "is-warning" : "is-light"
+        }" data-id="${project.id}">
+          ${isFavourite ? "★" : "☆"}
+        </button>
       </div>
       <div class="card-content is-flex-grow-1">
         <p class="has-text-grey-light is-size-7 mb-2">
